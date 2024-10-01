@@ -1,0 +1,26 @@
+ {menuPages.map((page, index) => (
+                <div key={index} className='header__menu__item'>
+                  <li className='header__item'>
+                    <a href={page.url} className='header__link'>
+                      {/* <FaAngleDown className="header__link__icon" /> */}
+                      {page.page}
+                    </a>
+                  </li>
+                  {page.subPages
+                    ? page.subPages.map((subpage, subIndex) => (
+                        <div className='header__submenu' key={subIndex}>
+                          <ul className='header__submenu__list'>
+                            <li className='header__submenu__item'>
+                              <a
+                                className='header__submenu__anchor'
+                                href={subpage.url}
+                              >
+                                {subpage.name}
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      ))
+                    : null}
+                </div>
+              ))}
